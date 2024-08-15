@@ -3,12 +3,12 @@ import numpy as np
 import pandas as pd
 import joblib
 
-df = pd.read_csv('Pricing.csv')
+df = pd.read_csv('./Pricing.csv')
 address = df['Address'].unique().tolist()
 df = pd.get_dummies(df, columns=['Address'])
 columns = df.columns
 
-model = joblib.load('catboost_moodel.joblib')
+model = joblib.load('./catboost_moodel.joblib')
 
 def preprocessing(data):
     data = pd.get_dummies(data, columns=['Address'])
